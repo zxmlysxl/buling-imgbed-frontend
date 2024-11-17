@@ -13,6 +13,9 @@ export default defineNuxtConfig({
             apiBase: ''
         }
     },
+    nitro: {
+        preset: 'cloudflare_pages',
+    },
 
     // 应用级配置
     app: {

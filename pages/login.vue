@@ -27,8 +27,6 @@
 </template>
 
 <script setup>
-
-
 import useApi from '~/services/api'
 import { toast } from '~/composables/useToast'
 

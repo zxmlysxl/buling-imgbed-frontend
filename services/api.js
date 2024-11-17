@@ -1,7 +1,10 @@
+import { toast } from '~/composables/useToast'
+
 const useApi = () => {
   const config = useRuntimeConfig()
-  const { token } = useAuth()
-  
+  const { token, logout } = useAuth()
+  const router = useRouter()
+ 
   const baseHeaders = {
     'Content-Type': 'application/json',
   }
@@ -11,6 +14,18 @@ const useApi = () => {
     'Authorization': `Bearer ${token.value}`
   })
 
+  // 添加统一的响应处理函数
+  const handleResponse = async (response) => {
+    if (response.status === 401) {
+      logout()
+      toast.showToast('登录已过期，请重新登录', 'error')
+      setTimeout(() => {
+        router.push('/login')
+      }, 2000)
+      return null
+    }
+    return response.json()
+  }
 
   return {
     // 认证相关
@@ -30,18 +45,16 @@ const useApi = () => {
         method: 'POST',
         body: JSON.stringify(body)
       })
-      const data = await response.json()
-      return data
+      return handleResponse(response)
     },
 
     async deleteImage(files) {
-
       const response = await fetch(`${config.public.apiBase}/image/delete`, {
         method: 'DELETE',
         headers: getAuthHeaders(),
         body: JSON.stringify({ files })
       })
-      return response.ok
+      return handleResponse(response)
     },
 
     async uploadImage(formData) {
@@ -52,7 +65,7 @@ const useApi = () => {
         },
         body: formData
       })
-      return response.json()
+      return handleResponse(response)
     },
 
     // 个人资料相关
@@ -60,19 +73,16 @@ const useApi = () => {
       const response = await fetch(`${config.public.apiBase}/user/profile`, {
         headers: getAuthHeaders()
       })
-      const data = await response.json()
-      console.log('api----'+data)
-      return data
+      return handleResponse(response)
     },
 
     async updateProfile(profileData) {
-     
       const response = await fetch(`${config.public.apiBase}/user/update`, {
         method: 'PUT',
         headers: getAuthHeaders(),
         body: JSON.stringify(profileData)
       })
-      return response.json()
+      return handleResponse(response)
     }
   }
 }

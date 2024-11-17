@@ -12,7 +12,11 @@
             <input id="username" v-model="tempValues.username" type="text" autocomplete="off"
               :disabled="!editingField.username">
             <template v-if="editingField.username">
-              <button type="button" class="edit-btn confirm" @click="confirmEdit('username')">确认</button>
+              <button type="button" class="edit-btn confirm" 
+                :disabled="saving" 
+                @click="confirmEdit('username')">
+                {{ saving ? '更新中...' : '确认' }}
+              </button>
               <button type="button" class="edit-btn cancel" @click="cancelEdit('username')">取消</button>
             </template>
             <button v-else type="button" class="edit-btn" @click="startEdit('username')">修改</button>
@@ -25,7 +29,11 @@
             <input id="password" type="text" v-model="tempValues.password" autocomplete="new-password"
               :disabled="!editingField.password">
             <template v-if="editingField.password">
-              <button type="button" class="edit-btn confirm" @click="confirmEdit('password')">确认</button>
+              <button type="button" class="edit-btn confirm" 
+                :disabled="saving" 
+                @click="confirmEdit('password')">
+                {{ saving ? '更新中...' : '确认' }}
+              </button>
               <button type="button" class="edit-btn cancel" @click="cancelEdit('password')">取消</button>
             </template>
             <button v-else type="button" class="edit-btn" @click="startEdit('password')">修改</button>
@@ -38,7 +46,11 @@
             <input id="chat_id" v-model="tempValues.chat_id" type="number" autocomplete="off"
               :disabled="!editingField.chat_id">
             <template v-if="editingField.chat_id">
-              <button type="button" class="edit-btn confirm" @click="confirmEdit('chat_id')">确认</button>
+              <button type="button" class="edit-btn confirm" 
+                :disabled="saving" 
+                @click="confirmEdit('chat_id')">
+                {{ saving ? '更新中...' : '确认' }}
+              </button>
               <button type="button" class="edit-btn cancel" @click="cancelEdit('chat_id')">取消</button>
             </template>
             <button v-else type="button" class="edit-btn" @click="startEdit('chat_id')">修改</button>
@@ -51,7 +63,11 @@
             <input id="r2_custom_url" v-model="tempValues.r2_custom_url" type="url"  autocomplete="off"
               :disabled="!editingField.r2_custom_url">
             <template v-if="editingField.r2_custom_url">
-              <button type="button" class="edit-btn confirm" @click="confirmEdit('r2_custom_url')">确认</button>
+              <button type="button" class="edit-btn confirm" 
+                :disabled="saving" 
+                @click="confirmEdit('r2_custom_url')">
+                {{ saving ? '更新中...' : '确认' }}
+              </button>
               <button type="button" class="edit-btn cancel" @click="cancelEdit('r2_custom_url')">取消</button>
             </template>
             <button v-else type="button" class="edit-btn" @click="startEdit('r2_custom_url')">修改</button>
@@ -68,7 +84,11 @@
               <option :value="1">开启</option>
             </select>
             <template v-if="editingField.enable_baidu_cdn">
-              <button type="button" class="edit-btn confirm" @click="confirmEdit('enable_baidu_cdn')">确认</button>
+              <button type="button" class="edit-btn confirm" 
+                :disabled="saving" 
+                @click="confirmEdit('enable_baidu_cdn')">
+                {{ saving ? '更新中...' : '确认' }}
+              </button>
               <button type="button" class="edit-btn cancel" @click="cancelEdit('enable_baidu_cdn')">取消</button>
             </template>
             <button v-else type="button" class="edit-btn" @click="startEdit('enable_baidu_cdn')">修改</button>
@@ -84,8 +104,11 @@
               <option :value="1">开启</option>
             </select>
             <template v-if="editingField.enable_image_optimization">
-              <button type="button" class="edit-btn confirm"
-                @click="confirmEdit('enable_image_optimization')">确认</button>
+              <button type="button" class="edit-btn confirm" 
+                :disabled="saving" 
+                @click="confirmEdit('enable_image_optimization')">
+                {{ saving ? '更新中...' : '确认' }}
+              </button>
               <button type="button" class="edit-btn cancel" @click="cancelEdit('enable_image_optimization')">取消</button>
             </template>
             <button v-else type="button" class="edit-btn" @click="startEdit('enable_image_optimization')">修改</button>
@@ -382,5 +405,10 @@ select:disabled {
  .edit-btn {
     padding: 0.5rem 0.6rem;
   }
+}
+
+.edit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 </style>

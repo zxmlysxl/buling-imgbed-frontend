@@ -285,8 +285,8 @@ const uploadAll = async () => {
           direct: imageUrl,
           baiduCdn: baiduCdnUrl,
           bbcode: `[img]${imageUrl}[/img]`,
-          markdown: `![${response.data.filename}](${imageUrl})`,
-          html: `<img src="${imageUrl}" alt="${response.data.filename}">`
+          markdown: `![](${imageUrl})`,
+          html: `<img src="${imageUrl}" alt="image">`
         })
 
         previewImages.value.splice(i, 1)

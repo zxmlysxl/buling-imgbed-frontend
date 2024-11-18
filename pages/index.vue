@@ -2,7 +2,7 @@
   <div class="home">
     <div class="hero">
       <div class="hero-content">
-        <h1 class="gradient-title">✨欢迎使用布灵图床</h1>
+        <h1 class="gradient-title">✨欢迎使用蜗牛图床</h1>
         <p class="subtitle">基于Cloudflare的个人图床新选择</p>
         <div class="action-buttons">
           <NuxtLink to="https://anuuu.com/buling-imgbed.html" target="_blank" class="btn primary">即刻开始</NuxtLink>
@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="/logo.png" alt="布灵图床logo" />
+        <img src="/logo.png" alt="蜗牛图床logo" />
       </div>
     </div>
 

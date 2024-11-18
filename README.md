@@ -86,9 +86,8 @@
    - 点击 "Create Token"
    - 选择 "Create Custom Token"
    - 权限设置：
-     - Account.Workers R2 Storage: Read & Write
-     - Account.Workers Scripts: Edit
-     - Account.D1: Edit
+     - Account.Cloudflare Pages: Edit（如果部署后端时，已配置此权限可复用相同Token）
+
 #### 2. NUXT_PUBLIC_API_BASE 获取
 1. 登录 Cloudflare 
 2. 进入 Workers & Pages 页面
@@ -111,7 +110,7 @@
    NUXT_PUBLIC_API_BASE=你的后端API地址
    ```
 3. 启用 GitHub Actions
-4. 推送代码触发自动部署
+5. 推送代码触发自动部署（首次部署请点击 Actions 页面手动触发）
 
 ### 其他部署方式
 
@@ -157,7 +156,7 @@
 
 ## 📞 联系作者
 
-- 博客：[Anuuu.com](https://annuuu.com)
+- 博客：[Anuuu.com](https://anuuu.com)
 - Telegram：[@wzsxh]
 
 

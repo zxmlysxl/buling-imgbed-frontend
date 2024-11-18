@@ -31,8 +31,8 @@
     <footer class="footer">
       <div class="container footer-content">
         <p class="copyright">© {{ currentYear }} 蜗牛图床 · 简单好用的图床服务 </p>
-        <p class="copyright">❤️ Made with <a href="https://anuuu.com" target="_blank" rel="noopener"
-            class="footer-link">Anuuu.com</a> ·
+        <p class="copyright">❤️ Made with <a href="https://www.zxmvps.com" target="_blank" rel="noopener"
+            class="footer-link">上网的蜗牛</a> ·
           <a href="https://github.com/wzs8/buling-imgbed" target="_blank" rel="noopener" class="footer-link">GitHub</a> ·
           <a href="https://anuuu.com/buling-imgbed.html" rel="noopener" class="footer-link" target="_blank">使用教程</a>
         </p>
